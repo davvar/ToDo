@@ -1,0 +1,182 @@
+@import './partials/mixins';
+
+//FONT
+$mainFont: monospace;
+//COLORS
+$iconColor: rgb(245, 241, 241);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+    transition: all .3s;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 600;
+    margin: 5%;
+    font-family: $mainFont;
+    font-size: 30px;
+}
+
+body {
+    background: rgb(236, 243, 247);
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+    max-width: 600px;
+}
+
+.inputField {
+    background: white;
+    padding: 5px;
+    display: flex;
+    position: relative;
+    margin-top: 25px;
+}
+
+
+
+#btn {
+    display: block;
+    width: 15%;
+    padding: 1.5% 3%;
+    background: rgb(38, 166, 154);
+    border: 1px solid rgb(38, 166, 154);
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: $mainFont;
+    font-weight: bold;
+}
+
+.colors {
+    @include flex(space-around, center);
+    @include posAbsolute($t: 50%, $r: 15.5%);
+    width: 35%;
+    transform: translate(0, -50%);
+
+    div {
+        width: 15px;
+        height: 15px;
+        box-sizing: content-box;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+}
+
+
+
+form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+input {
+    width: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    color: grey;
+    font-size: 16px;
+    font-family: $mainFont;
+
+    &::placeholder {
+        font-family: $mainFont;
+    }
+}
+
+
+.todoItem {
+    @include flex(space-between);
+    width: 100%;
+    margin-bottom: 0.5%;
+    transition: all .3s
+}
+
+.checkbox-parent {
+    width: 10%;
+    padding: 5%;
+    position: relative;
+}
+
+.checkbox {
+    @include posAbsolute($t:50%, $l: 50%);
+    transform: translate(-50%, -50%);
+    background: rgb(236, 243, 247);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.task {
+    font-size: 18px;
+    width: 89.5%;
+    align-self: stretch;
+    position: relative;
+    overflow: auto;
+}
+
+h3 {
+    @include posAbsolute($t:50%);
+    font-size: 15px;
+    transform: translate(0, -50%);
+    padding-left: 2%;
+    padding-right: 15%;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.isActive {
+    border: 2px solid rgb(203, 209, 209);
+}
+
+.fa {
+    z-index: 10000;
+
+}
+
+.fa-check {
+    @include posAbsolute($t:50%, $l: 50%);
+    transform: translate(-50%, -50%);
+    color: $iconColor;
+    opacity: 0.3;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fa-close {
+    @include posAbsolute($t:50%, $l: 95%);
+    transform: translate(-50%, -50%);
+    color: $iconColor;
+    opacity: 0.3;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.fa-edit {
+    @include posAbsolute($t:50%, $l: 88%);
+    transform: translate(-50%, -50%);
+    color: $iconColor;
+    opacity: 0.3;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+.fa:hover {
+    color: $iconColor;
+    opacity: 1;
+    font-size: 25px;
+}
+
+.deleteTask {
+    opacity: .1;
+    transition: opacity 1s;
+}
